@@ -1,0 +1,178 @@
+:root {
+    --maroon: #800000;
+    --dark-maroon: #500000;
+    --light-gray: #f5f5f5;
+    --medium-gray: #e0e0e0;
+    --dark-gray: #333;
+    --white: #ffffff;
+    --green: #28a745;
+    --yellow: #ffc107;
+    --red: #dc3545;
+    --blue: #007bff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: maroon;
+    border-bottom: 7px solid rgb(97, 2, 2);
+    padding: 1rem 3rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+}
+
+.header img {
+    width: 50px;
+    height: 50px;
+}
+
+.header #logo {
+    gap: 10px;
+    align-items: center;
+    color: white;
+    display: flex;
+}
+
+.desktop-nav {
+    display: block;
+}
+
+.desktop-nav .nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.desktop-nav .nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.desktop-nav .nav a:hover, 
+.desktop-nav .nav a.active {
+    color: #ffcc00;
+    border-radius: 5px;
+}
+
+/* Mobile Menu Button */
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Mobile Menu Container (header-related only) */
+.mobile-menu-container {
+    position: fixed;
+    top: 80px;
+    right: 0;
+    width: 80%;
+    height: calc(100vh - 80px);
+    background: #f8f8f8;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1001;
+    overflow-y: auto;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    display: none;
+}
+
+.mobile-menu-container.active {
+    transform: translateX(0);
+}
+
+/* Overlay (header-related) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* Footer Styles */
+footer {
+    background-color: maroon;
+    border-top: 5px solid rgb(97, 2, 2);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 220px;
+}
+
+@media (max-width: 768px) {
+    @media (max-width: 768px) {
+    /* Header adjustments */
+    .header {
+        padding: 18px 20px;
+    }
+
+    .header #logo h1 {
+        margin-right: 10px;
+        font-size: 1.2rem;
+        white-space: nowrap; 
+        max-width: 150px; 
+    }
+    
+    .menu-btn {
+        margin-left: 10px;
+        display: block;
+    }
+
+    .desktop-nav {
+        display: none;
+    }
+
+    /* Show mobile menu container */
+    .mobile-menu-container {
+        display: block;
+    }
+
+    /* Mobile nav styles (header-related only) */
+    .mobile-nav {
+        display: flex;
+        flex-direction: column;
+        background: transparent;
+    }
+
+    .mobile-nav a {
+        color: #333;
+        padding: 15px 20px;
+        border-bottom: 1px solid #ddd;
+        text-decoration: none;
+    }
+
+    .mobile-nav a:hover, 
+    .mobile-nav a.active {
+        background: maroon;
+        color: white;
+    }
+}
+}

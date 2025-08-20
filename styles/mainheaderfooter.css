@@ -1,0 +1,183 @@
+/* mainheaderfooter.css - External CSS for header and footer only */
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: maroon;
+    border-bottom: 7px solid rgb(97, 2, 2);
+    padding: 1rem 3rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+}
+
+.header img {
+    width: 50px;
+    height: 50px;
+}
+
+.header #logo {
+    gap: 10px;
+    align-items: center;
+    color: white;
+    display: flex;
+}
+
+/* Search Bar */
+.search-container {
+    flex: 1; 
+    margin-left: 150px;
+    max-width: 400px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    font-size: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: box-shadow 0.3s ease;
+}
+
+.search-input:focus {
+    box-shadow: 0 0 0 2px #ffcc00;
+}
+
+/* Desktop Navigation */
+.desktop-nav {
+    display: block;
+}
+
+.desktop-nav .nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.desktop-nav .nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.desktop-nav .nav a:hover, 
+.desktop-nav .nav a.active {
+    color: #ffcc00;
+    border-radius: 5px;
+}
+
+/* Mobile Menu Button */
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Mobile Menu Container (header-related only) */
+.mobile-menu-container {
+    position: fixed;
+    top: 80px;
+    right: 0;
+    width: 80%;
+    height: calc(100vh - 80px);
+    background: #f8f8f8;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1001;
+    overflow-y: auto;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    display: none;
+}
+
+.mobile-menu-container.active {
+    transform: translateX(0);
+}
+
+/* Overlay (header-related) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* Footer Styles */
+footer {
+    background-color: maroon;
+    border-top: 5px solid rgb(97, 2, 2);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 400px;
+}
+
+/* Responsive Adjustments (Header and Footer only) */
+@media (max-width: 768px) {
+    /* Header adjustments */
+    .header {
+        padding: 18px 20px;
+    }
+
+    .header #logo img {
+        display: none;
+    }
+
+    .header #logo h1 {
+        margin-right: 10px;
+        font-size: 1.2rem;
+        white-space: nowrap; 
+        overflow: hidden;
+        max-width: 150px; 
+    }
+    
+    .menu-btn {
+        margin-left: 10px;
+        display: block;
+    }
+
+    .desktop-nav {
+        display: none;
+    }
+
+    .search-container {
+        margin: 0;
+        max-width: 500px;
+    }
+
+    /* Mobile nav styles (header-related only) */
+    .mobile-nav {
+        display: flex;
+        flex-direction: column;
+        background: transparent;
+    }
+
+    .mobile-nav a {
+        color: #333;
+        padding: 15px 20px;
+        border-bottom: 1px solid #ddd;
+        text-decoration: none;
+    }
+
+    .mobile-nav a:hover, 
+    .mobile-nav a.active {
+        background: maroon;
+        color: white;
+    }
+}
