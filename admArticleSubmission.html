@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSafe USeP - Submit Article</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Use all existing styles from previous pages */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: maroon;
+            border-bottom: 7px solid rgb(97, 2, 2);
+            padding: 1rem 3rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1001;
+        }
+
+        .header img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .header #logo {
+            gap: 10px;
+            align-items: center;
+            color: white;
+            display: flex;
+        }
+
+        .back-btn {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .back-btn:hover {
+            color: #ffcc00;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 2rem;
+            width: 90%;
+            margin: auto;
+            padding: 6rem 0 2rem;
+            position: relative;
+        }
+
+        .article-form {
+            max-width: 1000px;
+            margin: 2rem auto;
+            margin-top: 120px;
+            background-color: #f8f8f8;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .article-form h2 {
+            color: maroon;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        textarea.form-control {
+            min-height: 200px;
+            resize: vertical;
+        }
+
+        .hashtags-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .hashtags-hint {
+            font-size: 0.8rem;
+            color: #868686;
+            margin-top: 0.5rem;
+        }
+
+        .submit-btn {
+            background-color: maroon;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 2rem auto 0;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #b30000;
+        }
+
+        footer {
+            background-color: maroon;
+            border-top: 5px solid rgb(97, 2, 2);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .header { padding: 18px 15px; }
+            .header #logo img { display: none; }
+            .header #logo h1 {
+                margin-right: 10px;
+                font-size: 1.2rem;
+                white-space: nowrap;
+                max-width: 160px;
+                padding: 5px;
+            }
+            .article-form { margin-top: 90px; max-width: 450px; }
+            .container { grid-template-columns: 1fr; }
+            .sidebar { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Back Button -->
+    <header class="header">
+        <div id="logo">
+            <img src="images/logo.jpg" alt="CyberSafe USeP Logo">
+            <img src="images/sdmdlogo.png" alt="sdmdlogo">
+            <h1>CyberSafe USeP</h1>
+        </div>
+
+        <div>
+            <a href="admDASHSUBMITTEDART.php" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Article Submission Form -->
+    <main class="article-form">
+        <h2>Submit New Article</h2>
+        <form id="articleSubmissionForm" action="submit_article.php" method="POST">
+            <div class="form-group">
+                <label for="articleTitle">Article Title</label>
+                <input type="text" id="articleTitle" name="title" class="form-control" required placeholder="Enter article title">
+            </div>
+
+            <div class="form-group">
+                <label for="articleCategory">Category</label>
+                <select id="articleCategory" name="category" class="form-control" required>
+                    <option value="">Select a category</option>
+                    <option value="phishing">Phishing Awareness</option>
+                    <option value="malware">Malware Protection</option>
+                    <option value="passwords">Password Security</option>
+                    <option value="privacy">Data Privacy</option>
+                    <option value="social">Social Engineering</option>
+                    <option value="bullying">Cyberbullying</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="articleContent">Article Content</label>
+                <textarea id="articleContent" name="content" class="form-control" required placeholder="Write your article content here..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="articleHashtags">Keywords/Hashtags</label>
+                <input type="text" id="articleHashtags" name="keywords" class="hashtags-input" placeholder="#cybersecurity #phishing #safety">
+                <p class="hashtags-hint">Separate keywords with spaces (e.g., #security #awareness)</p>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Article</button>
+        </form>
+    </main>
+
+    <footer>
+        &copy; 2025 CyberSafe USeP | Promoting a secure online environment for USeP
+    </footer>
+
+    <!-- AJAX submission expecting JSON response -->
+    <script>
+        document.getElementById('articleSubmissionForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            try {
+                const formData = new FormData(this);
+
+                // send without any redirect
+                const response = await fetch('submit_article_admin.php', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                 'Accept': 'application/json',
+                }
+                });
+                // parse JSON
+                const result = await response.json();
+                console.log('PHP JSON:', result);
+
+                if (!response.ok || !result.success) {
+                    throw new Error(result.error || 'Submission failed');
+                }
+
+                alert('Article submitted successfully!');
+                // redirect after successful JSON response
+                window.location.href = 'admDASHSUBMITTEDART.php';
+            } catch (err) {
+                console.error(err);
+                alert('Error: ' + err.message);
+            }
+        });
+    </script>
+</body>
+</html>
