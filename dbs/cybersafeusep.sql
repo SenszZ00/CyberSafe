@@ -161,7 +161,7 @@ CREATE TRIGGER `tr_article_submission` BEFORE INSERT ON `articles` FOR EACH ROW 
     SET NEW.submissionDate = NOW();
     
     -- Admin-published articles are automatically approved
-    IF (SELECT userType FROM Users WHERE userID = NEW.userID) = 'Admin' THEN
+    IF (SELECT userType FROM users WHERE userID = NEW.userID) = 'Admin' THEN
         SET NEW.status = 'approved';
         SET NEW.publicationDate = NOW();
     ELSE
@@ -289,19 +289,19 @@ CREATE TRIGGER `tr_auto_assign_it_personnel` BEFORE INSERT ON `reports` FOR EACH
     IF NEW.userID IS NOT NULL AND NEW.itPersonnelID IS NULL THEN
         -- 1. Get reporter's college/department
         SELECT college_department INTO v_reporter_college
-        FROM Users 
+        FROM users 
         WHERE userID = NEW.userID;
         
         -- 2. Find matching IT personnel from same college
         IF v_reporter_college IS NOT NULL THEN
             SELECT userID INTO v_it_personnel
-            FROM Users
+            FROM users
             WHERE userType = 'IT Personnel'
               AND college_department = v_reporter_college
             ORDER BY (
                 SELECT COUNT(*) 
                 FROM Reports 
-                WHERE itPersonnelID = Users.userID 
+                WHERE itPersonnelID = users.userID 
                 AND status = 'under review'
             ) ASC
             LIMIT 1;
