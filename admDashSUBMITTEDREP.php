@@ -166,7 +166,7 @@ $itPersonnel = $itStmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <div class="desktop-nav">
       <nav class="nav">
-        <a href="admDASHSUBMITTEDART.php">Submitted Articles</a>
+        <a href="admDashSUBMITTEDART.php">Submitted Articles</a>
         <a href="admDashSUBMITTEDREP.php" class="active">Submitted Reports</a>
         <a href="admDashREPORTLOG.php">Report Log</a>
         <a href="admMessages.php">Messages</a>
@@ -180,7 +180,7 @@ $itPersonnel = $itStmt->fetchAll(PDO::FETCH_ASSOC);
   <div class="overlay" id="overlay"></div>
   <div class="mobile-menu-container" id="mobileMenuContainer">
     <nav class="mobile-nav">
-      <a href="admDASHSUBMITTEDART.php">Submitted Articles</a>
+      <a href="admDashSUBMITTEDART.php">Submitted Articles</a>
       <a href="admDashSUBMITTEDREP.php" class="active">Submitted Reports</a>
       <a href="admDashREPORTLOG.php">Report Log</a>
       <a href="admMessages.php">User Messages</a>

@@ -143,7 +143,7 @@ if (!$article) {
       <?= nl2br(htmlspecialchars($article['content'])) ?>
     </div>
 
-    <a class="back-btn" href="admDASHSUBMITTEDART.php"><i class="fas fa-arrow-left"></i> Back to Articles</a>
+    <a class="back-btn" href="admDashSUBMITTEDART.php"><i class="fas fa-arrow-left"></i> Back to Articles</a>
   </div>
 </body>
 </html>
