@@ -5,7 +5,7 @@ require 'db.php';
 
 // Restrict access to Admins only
 if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'Admin') {
-    header('Location: cybersafeLOGIN.html');
+    header('Location: login.php');
     exit;
 }
 
@@ -172,7 +172,7 @@ $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <a href="admDashSUBMITTEDREP.php">Submitted Reports</a>
       <a href="admDashREPORTLOG.php">Report Log</a>
       <a href="admMessages.php">User Messages</a>
-      <a href="cybersafeLOGIN.html">Log Out</a>
+      <a href="login.php">Log Out</a>
     </nav>
   </div>
 

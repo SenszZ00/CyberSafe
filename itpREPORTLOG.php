@@ -6,7 +6,7 @@ require 'db.php';
 
 // Restrict to IT Personnel
 if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'IT Personnel') {
-    header('Location: cybersafeLOGIN.html');
+    header('Location: login.php');
     exit;
 }
 

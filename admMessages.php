@@ -5,7 +5,7 @@ require 'db.php';
 
 // Restrict to Admins only
 if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'Admin') {
-    header('Location: cybersafeLOGIN.html');
+    header('Location: login.php');
     exit;
 }
 
