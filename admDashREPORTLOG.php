@@ -13,7 +13,6 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'Admin') {
 // 2) Handle filter inputs
 $filterType  = $_GET['filterType']  ?? '';
 $filterValue = $_GET['filterValue'] ?? '';
-
 $whereClauses = [];
 $params       = [];
 if ($filterType !== '' && $filterValue !== '') {
@@ -40,7 +39,7 @@ $sql = "
     rl.logTimestamp,
     rl.itPersonnelID,
     rl.status
-  FROM ReportLog rl
+  FROM reportlog rl
   JOIN reports    r ON rl.reportID = r.reportID
 ";
 if ($whereClauses) {
