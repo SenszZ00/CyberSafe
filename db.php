@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 // db.php
 $host   = 'localhost';
 $dbname = 'cybersafeusep';  // contains both usepemails & users tables
